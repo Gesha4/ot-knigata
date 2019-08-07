@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class lqlq {
+	
+	public static void main(String[] args) {
+		System.out.print("Напишете число за проверка:");
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		int b = a % 2;
+		System.out.println(b==0 ? "числото е четно" : "числото е нечетно");
+		
+	}
+
+}
