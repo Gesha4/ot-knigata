@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class lqlq {
+	
+	public static void main(String[] args) {
+		System.out.print("Напишете първо число за проверка:");
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		System.out.print("Напишете второ число за проверка:");
+		int b = scanner.nextInt();
+		System.out.println(a%5==0 && b%7==0 ? "числата се делят на 5 и 7"
+				: "числата не се делят на 5 и 7");
+		
+	}
+
+}
