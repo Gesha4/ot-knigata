@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class lqlq {
+	
+	public static void main(String[] args) {
+		System.out.print("Напишете число за проверка:");
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		int b;
+		for (int i=1;i<=2;i++) {
+			b=a%10;
+			a=(a-b)/10;
+		}
+		System.out.println(a%10==7 ? "числото има за хиляди 7"
+				: "числото няма за хиляди 7");
+		
+	}
+
+}
