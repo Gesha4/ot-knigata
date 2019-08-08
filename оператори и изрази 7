@@ -1,0 +1,16 @@
+//Силата на гравитационното поле на луната е приблизително 17% от това на земята. 
+//Напишете програма, която да изчислява тежестта на човек на луната, по дадената тежест на земята.
+
+import java.util.Scanner;
+public class LQLQ {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Въведете вашето тегло:");
+		float a = sc.nextFloat();
+		double b = a*0.17;
+		System.out.println("На луната ще тежите: "+b+"кг.");
+
+	}
+
+}
