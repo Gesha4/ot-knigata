@@ -1,0 +1,16 @@
+//Напишете програма, която проверява дали дадена точка О (x, y) е вътре в окръжността К ((0,0), 5).
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Въведете х=");
+		float x = scan.nextFloat();
+		System.out.println("Въведете y=");
+		float y = scan.nextFloat();
+		
+
+	}
+
+}
