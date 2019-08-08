@@ -1,15 +1,16 @@
-//Напишете програма, която проверява дали дадена точка О (x, y) е вътре в окръжността К ((0,0), 5).
-
+// Напишете програма, която проверява дали дадена точка О (x, y) е вътре в окръжността К ((0,0), 5).
+//точка М(хм,ум) е в окръжност О(R,х,у) ако (xm-x)^2+(ym-y)^2?R^2
 import java.util.Scanner;
-public class lqlq {
+public class LQLQ {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Въведете х=");
+		System.out.print("Въведете х=");
 		float x = scan.nextFloat();
-		System.out.println("Въведете y=");
+		System.out.print("Въведете y=");
 		float y = scan.nextFloat();
-		
+		float c = x*x+y*y;
+		System.out.println(c<=25 ? "точката е в окръжността" : "точката не е в окръжността");
 
 	}
 
