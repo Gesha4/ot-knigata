@@ -1,0 +1,18 @@
+//Напишете  програма,  която  за  подадени  дължина  и  височина  на правоъгълник, изкарват на конзолата неговият периметър и лице.
+import java.util.Scanner;
+public class LQLQ {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Въведете едната страна на правоъгълника:");
+		float a = sc.nextFloat();
+		System.out.println("Въведете другата страна на правоъгълника:");
+		float b = sc.nextFloat();
+		float p=2*(a+b);
+		float s=a*b;
+		System.out.println("Периметъра е: "+p);
+		System.out.println("Лицето е: "+s);
+
+	}
+
+}
