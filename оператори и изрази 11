@@ -1,0 +1,22 @@
+//Напишете програма, която проверява дали дадено число n (n < 100) е просто.
+// дали се дели на някое число от 1 до sqrt(n)
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число по-малко от 100:");
+		int k = scan.nextInt();
+		boolean b = true;
+		for (double i=2;i<=Math.sqrt(k);i++) {
+			double a = k%i;
+			if (a==0) {
+				b = false;
+			}
+		}
+		System.out.println(b==true ? "Числото е просто" : "Числото не е просто");
+	}
+
+}
