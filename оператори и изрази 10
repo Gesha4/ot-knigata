@@ -1,0 +1,27 @@
+//Напишете програма, която приема за вход четирицифрено число във формат abcd
+//и след това извършва следните действия върху него:
+//Пресмята сбора от цифрите на числото.
+//Разпечатва на конзолата цифрите в обратен ред: dcba.
+//Поставя последната цифра, на първо място: dabc.
+//Разменя мястото на втората и третата цифра: acbd.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете четири жифрено число:");
+		int k = scan.nextInt();
+		int d = k%10;
+		int c = (k/10)%10;
+		int b = (k/100)%10;
+		int a = (k/1000)%10;
+		int e = a+b+c+d;
+		System.out.println("Сбора на цифрите е:" + e);
+		System.out.println(Integer.toString(d)+Integer.toString(c)+Integer.toString(b)+Integer.toString(a));
+		System.out.println(Integer.toString(d)+Integer.toString(a)+Integer.toString(b)+Integer.toString(c));
+		System.out.println(Integer.toString(a)+Integer.toString(c)+Integer.toString(b)+Integer.toString(d));
+
+	}
+
+}
