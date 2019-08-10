@@ -1,0 +1,20 @@
+//Дадено е число n и позиция p. Напишете поредица от операции, 
+//които да отпечатат стойността на бита на позиция p от числото n (0 или 1).
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int n = scan.nextInt();
+		System.out.print("Въведете позиция:");
+		int p = scan.nextInt();
+		int a = 1;
+		a = a << p;
+		n = n & a;
+		System.out.println(n==0 ? "Бита на позиция p е 0." : "Бита на позиция p е 1.");
+	}
+
+}
