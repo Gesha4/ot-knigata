@@ -1,0 +1,30 @@
+//Дадено е число n, стойност v (v = 0 или 1) и позиция p. 
+//Напишете поредица от операции, които да променят стойността на n, 
+//така че битът на позиция p да има стойност v.
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int n = scan.nextInt();
+		System.out.print("Въведете стойност:");
+		int v = scan.nextInt();
+		System.out.print("Въведете позиция:");
+		int p = scan.nextInt();
+		int a = 1;
+		if (v==0) {
+			a = a << p;
+			a=~a;
+			n = n & a;
+			}
+		else {
+		a = a << p;
+		n = n ^ a;
+		}
+		System.out.println(n);
+	}
+
+}
