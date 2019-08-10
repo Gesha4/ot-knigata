@@ -1,0 +1,15 @@
+//Напишете израз, който да проверява дали третия бит на дадено число е 1 или 0.
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int a = scan.nextInt();
+		int b = a&8;
+		System.out.println(b==8 ? "Третият бит е 1" : "Третият бит е 0");
+	}
+
+}
