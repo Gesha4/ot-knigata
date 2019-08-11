@@ -1,0 +1,16 @@
+//Напишете програма, която чете от конзолата радиуса "r" на кръг и отпечатва неговите лице и обиколка.
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете радиуса на кръга:");
+		int r= scan.nextInt();
+		double p = Math.PI*2/r;
+		double s = Math.PI*r*r;
+		System.out.printf("Обиколката на кръга е: %.2f%n",p);
+		System.out.printf("Лицето на кръга е: %.2f",s);
+	}
+}
