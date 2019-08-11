@@ -1,0 +1,33 @@
+//Дадена фирма има име, адрес, телефонен номер, факс номер, уеб сайт и мениджър.
+//Мениджърът има име, фамилия и телефонен номер. Напишете програма, 
+//която чете информацията за компанията и нейния мениджър и
+//я отпечатва след това на конзолата.
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете името на фирмата :");
+		String nameF= scan.nextLine();
+		System.out.print("Въведете адреса :");
+		String adres= scan.nextLine();
+		System.out.print("Въведете телефоония номер :");
+		long number= scan.nextLong();
+		System.out.print("Въведете факс номера :");
+		long fax= scan.nextLong();
+		System.out.print("Въведете website:");
+		String website= scan.nextLine();
+		System.out.print("Въведете името на мениджъра :");
+		String nameM= scan.nextLine();
+		System.out.print("Въведете фамилията на мениджъра :");
+		String nameMF= scan.nextLine();
+		System.out.print("Въведете телефонния номер на мениджъра :");
+		long numberM= scan.nextLong();
+		System.out.printf("Фирмата %s с адрес %s , телефонен номер: %d , факс номер: %d и сайт: %s%n",
+				nameF,adres,number,fax,website);
+		System.out.printf("е с мениджър: %s %s , с телефонен номер: %d.",nameM,nameMF,numberM);
+	}
+
+}
