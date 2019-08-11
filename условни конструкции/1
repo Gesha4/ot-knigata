@@ -1,0 +1,19 @@
+//Да се напише if-конструкция, която изчислява стойността на две целочислени променливи
+//и разменя техните стойности, ако стойността на първата променлива е по-голяма от втората.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число :");
+		int a = scan.nextInt();
+		System.out.print("Въведете число :");
+		int b = scan.nextInt();
+		if (a>b) {
+			int c = a;
+			a = b;
+			b = c;
+			}
+	}
+}
