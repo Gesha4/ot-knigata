@@ -1,0 +1,19 @@
+//Напишете програма, която показва знака (+ или -) от частното на две реални числа, без да го пресмята.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число :");
+		int a = scan.nextInt();
+		System.out.print("Въведете число :");
+		int b = scan.nextInt();
+		char c;
+		if ((a>0 & b>0) | (a<0 & b<0)) {
+			c = '+';
+			}
+		else {c = '-';}
+		System.out.print("Знака от частното на числата е "+c +".");
+	}
+}
