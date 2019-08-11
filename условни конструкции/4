@@ -1,0 +1,24 @@
+//Напишете програма, която за дадена цифра (0-9), зададена като вход,
+//извежда името на цифрата на български език.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число от 0 до 9:");
+		int a = scan.nextInt();
+		switch (a) {
+		case 0: System.out.print("Нула");break;
+		case 1: System.out.print("Едно");break;
+		case 2: System.out.print("Две");break;
+		case 3: System.out.print("Три");break;
+		case 4: System.out.print("Четири");break;
+		case 5: System.out.print("Пет");break;
+		case 6: System.out.print("Шест");break;
+		case 7: System.out.print("Седем");break;
+		case 8: System.out.print("Осем");break;
+		case 9: System.out.print("Девет");break;
+		}
+	}
+}
