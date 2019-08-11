@@ -1,0 +1,18 @@
+//Напишете програма, която чете от конзолата две цели числа и отпечатва по-голямото от тях. 
+//Реализирайте програмата без използването на сравнение.
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете цяло число :");
+		int a = scan.nextInt();
+		System.out.print("Въведете цяло число :");
+		int b = scan.nextInt();
+		int c = a - b;
+		System.out.print(c>0 ? "По-голямото число е "+a : "По-голямото число е "+b);
+	}
+
+}
