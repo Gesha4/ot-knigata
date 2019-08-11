@@ -1,0 +1,21 @@
+//Напишете програма, която чете пет числа и отпечатва тяхната сума.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число :");
+		float a = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float b = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float c = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float d = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float e = scan.nextFloat();
+		System.out.print("Сумата е " + (a+b+c+d+e));
+	}
+
+}
