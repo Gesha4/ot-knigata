@@ -1,0 +1,28 @@
+//Напишете програма, която чете от конзолата две цели числа (integer) и отпечатва, 
+//колко числа има между тях, такива, че остатъкът им от деленето на 5 да е 0.
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете цяло число :");
+		int a = scan.nextInt();
+		System.out.print("Въведете цяло число :");
+		int b = scan.nextInt();
+		if (b<a) {
+			int c = a;
+			a=b;
+			b=c;
+		}
+		int d = 0;
+		for (int i=a; i<b;i++) {
+			if(i%5==0) {
+				d++;
+			}
+		}
+		System.out.print("Числата м/у тях, които се делят на 5 са "+d);
+	}
+
+}
