@@ -1,0 +1,27 @@
+//Напишете програма, която чете пет числа и отпечатва най-голямото от тях.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число :");
+		float a = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float b = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float c = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float d = scan.nextFloat();
+		System.out.print("Въведете число :");
+		float e = scan.nextFloat();
+		float f = 0;
+		if (f<a) {f=a;}
+		if (f<b) {f=b;}
+		if (f<c) {f=c;}
+		if (f<d) {f=d;}
+		if (f<e) {f=e;}
+		System.out.print("Най-голямото число е: " +f);
+	}
+
+}
