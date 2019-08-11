@@ -1,0 +1,18 @@
+//Напишете програма, която чете от конзолата три числа от тип int и отпечатва тяхната сума.
+
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int a = scan.nextInt();
+		System.out.print("Въведете число:");
+		int b = scan.nextInt();
+		System.out.print("Въведете число:");
+		int c = scan.nextInt();
+		System.out.println("Сумата им е:"+(a+b+c));
+	}
+
+}
