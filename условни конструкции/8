@@ -1,0 +1,31 @@
+//Напишете програма, която прилага бонус точки към дадени точки в
+//интервала [1..9] чрез прилагане на следните правила:
+//- Ако точките са между 1 и 3, програмата ги умножава по 10.
+//- Ако точките са между 4 и 6, ги умножава по 100.
+//- Ако точките са между 7 и 9, ги умножава по 1000.
+//- Ако точките са 0 или повече от 9, се отпечатва съобщение за грешка.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число от 1 до 9: ");
+		int a = scan.nextInt();
+		switch (a) {
+		case 1: ;
+		case 2: ;
+		case 3: a=a*10;
+		System.out.print("След бонуст точките резултатър е "+a);break;
+		case 4: ;
+		case 5: ;
+		case 6: a=a*100;
+		System.out.print("След бонуст точките резултатър е "+a);break;
+		case 7: ;
+		case 8: ;
+		case 9: a=a*1000;
+		System.out.print("След бонуст точките резултатър е "+a);break;
+		default : System.out.print("Грешно число!");
+		}
+	}
+}
