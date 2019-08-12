@@ -1,0 +1,30 @@
+//Напишете програма, която при въвеждане на коефициентите (a, b и c)
+//на квадратно уравнение: 2 ax  bx  c , изчислява и извежда неговите
+//реални корени.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число от a=");
+		int a = scan.nextInt();
+		System.out.print("Въведете число от b=");
+		int b = scan.nextInt();
+		System.out.print("Въведете число от c=");
+		int c = scan.nextInt();
+		int d = b*b-4*a*c;
+		if (d<0) {
+			System.out.print("Квадратното уравнение няма реални корени.");
+		}
+		else if (d==0) {
+			int x = - (b/(2*a));
+			System.out.print("Квадратното уравнение има един корен - "+x);
+		}
+		else {
+			double x1 = (- b + Math.sqrt(b*b-4*a*c))/(2*a);
+			double x2 = (- b - Math.sqrt(b*b-4*a*c))/(2*a);
+			System.out.print("Квадратното уравнение има два корена "+x1+" и "+x2);
+		}
+	}
+}
