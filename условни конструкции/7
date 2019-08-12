@@ -1,0 +1,25 @@
+//Дадени са няколко цели числа. Напишете програма, която намира онези
+//подмножества от тях, които имат сума 0.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число а=");
+		int a = scan.nextInt();
+		System.out.print("Въведете число b=");
+		int b = scan.nextInt();
+		System.out.print("Въведете число c=");
+		int c = scan.nextInt();
+		if (a+b==0) {
+			System.out.println("Суматата на a и b e 0.");
+		}
+		if (a+c==0) {
+			System.out.println("Суматата на a и c e 0.");
+		}
+		if (c+b==0) {
+			System.out.println("Суматата на b и c e 0.");
+		}
+	}
+}
