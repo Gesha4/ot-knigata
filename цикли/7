@@ -1,0 +1,27 @@
+//Напишете програма, която пресмята N!*K!/(N-K)! за дадени N и K.
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int n = scan.nextInt();
+		System.out.print("Въведете число:");
+		int k = scan.nextInt();
+		int razlika=n-k;
+		int nfak=1;
+		int kfak=1;
+		int razlikaFak=1;
+		for (int i=1; i<=n; i++) {
+			nfak=nfak*i;
+		}
+		for (int i=1; i<=k; i++) {
+			kfak=kfak*i;
+		}
+		for (int i=1; i<=razlika; i++) {
+			razlikaFak=razlikaFak*i;
+		}
+		int divided = (nfak*kfak)/razlikaFak;
+		System.out.print("Деленето на фактoриелите им е "+divided);
+	}	
+}
