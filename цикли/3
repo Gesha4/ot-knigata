@@ -1,0 +1,25 @@
+//Напишете програма, която чете от конзолата поредица от цели числа и
+//отпечатва най-малкото и най-голямото от тях.
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете брой на числата: ");
+		int num = scan.nextInt();
+		int min=Integer.MAX_VALUE;
+		int max=0;
+		for (int i=1; i<=num; i++) {
+			System.out.println("Въведете число:");
+			int a=scan.nextInt();
+			if (min>a) {
+				min=a;
+			}
+			if (max<a) {
+				max=a;
+			}
+		}
+		System.out.println("Най-малкото от числата е "+min);
+		System.out.println("Най-голямото от числата е "+max);
+	}
+}
