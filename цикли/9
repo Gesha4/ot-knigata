@@ -1,0 +1,24 @@
+//Числата на Каталан
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int n = scan.nextInt();
+		int nfak=1;
+		int nfak2=2;
+		int nfak1=1;
+		for (int i=1; i<=n; i++) {
+			nfak=nfak*i;
+		}
+		for (int i=1; i<=2*n; i++) {
+			nfak2=nfak2*i;
+		}
+		for (int i=1; i<=n+1; i++) {
+			nfak1=nfak1*i;
+		}
+		int divided=nfak2/(nfak1*nfak);
+		System.out.print("Деленето на фактoриелите им е "+divided);
+	}	
+}
