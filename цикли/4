@@ -1,0 +1,25 @@
+//Напишете програма, която отпечатва всички възможни карти от
+//стандартно тесте без джокери (имаме 52 карти: 4 бои по 13 карти).
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		for (int i=2; i<=10; i++) {
+			System.out.print(" "+i);
+		}
+		System.out.println(" вале, дама, поп и асак купа");
+		for (int i=2; i<=10; i++) {
+			System.out.print(" "+i);
+		}
+		System.out.println(" вале, дама, поп и асак спатия");
+		for (int i=2; i<=10; i++) {
+			System.out.print(" "+i);
+		}
+		System.out.println(" вале, дама, поп и асак каро");
+		for (int i=2; i<=10; i++) {
+			System.out.print(" "+i);
+		}
+		System.out.print(" вале, дама, поп и асак пика");
+	}
+}
