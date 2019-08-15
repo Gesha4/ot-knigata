@@ -1,0 +1,22 @@
+//Напишете програма, която пресмята N!/K! за дадени N и K (1<K<N).
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int n = scan.nextInt();
+		System.out.print("Въведете число:");
+		int k = scan.nextInt();
+		int nfak=1;
+		int kfak=1;
+		for (int i=1; i<=n; i++) {
+			nfak=nfak*i;
+		}
+		for (int i=1; i<=k; i++) {
+			kfak=kfak*i;
+		}
+		int divided = nfak/kfak;
+		System.out.print("Деленето на фактoриелите им е "+divided);
+	}	
+}
