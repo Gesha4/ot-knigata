@@ -1,0 +1,17 @@
+//Напишете програма, която отпечатва на конзолата числата от 1 до N.
+//Числото N се чете от стандартния вход.
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число: ");
+		int a = scan.nextInt();
+		int b=0;
+		System.out.printf("Числата до %d са:",a);
+		while (b<=a) {
+			System.out.print(" "+b);
+			b++;
+		}
+	}
+}
