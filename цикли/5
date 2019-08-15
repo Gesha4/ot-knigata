@@ -1,0 +1,21 @@
+//Напишете програма, която чете от конзолата числото N и отпечатва
+//сумата на първите N члена от редицата на Фибоначи:
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете член на Фибуначи:");
+		int n = scan.nextInt();
+		int a=0;
+		int b=1;
+		int sum = 1;
+		for (int i=1; i<=n-2; i++) {
+			int c = a+b;
+			sum=sum+c;
+			a=b;
+			b=c;
+		}
+		System.out.print("Сумата е "+sum);
+	}	
+}
