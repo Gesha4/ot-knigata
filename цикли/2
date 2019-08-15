@@ -1,0 +1,17 @@
+//Напишете програма, която отпечатва на конзолата числата от 1 до N,
+//които не се делят на 3 и 7. Числото N се чете от стандартния вход.
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число: ");
+		int n = scan.nextInt();
+		System.out.printf("Числата до %d, които не се делят на 3 и 7 са:",n);
+		for (int num=1; num<n; num++) {
+			if (num%3!=0 && num%7!=0) {
+				System.out.print(" "+num);
+			}
+		}
+	}
+}
