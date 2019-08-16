@@ -1,0 +1,20 @@
+//Напишете програма, която чете от конзолата положително цяло число N (N < 20) 
+//и отпечатва матрица с числа като на фигуратапо-долу: 
+package lqlq;
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		int n = scan.nextInt();
+		for (int i=1; i<=n; i++) {
+			for(int j=0; j<=n-1; j++) {
+				System.out.print(i+j);
+			}
+			System.out.println();
+		}
+	}
+}
