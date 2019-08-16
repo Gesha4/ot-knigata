@@ -1,0 +1,24 @@
+//Напишете програма, 
+//която пресмятана колко нули завършва факто-риела на дадено число. 
+package lqlq;
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		int n = scan.nextInt();
+		double nfak = 1;
+		for (int i=1; i<=n; i++) {
+			nfak*=i;
+		}
+		int zeros=0;
+		while(nfak%10 == 0) {
+			nfak=nfak/10;
+			zeros++;
+		}
+		System.out.print(zeros);
+	}
+}
