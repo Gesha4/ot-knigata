@@ -1,0 +1,26 @@
+//Напишете програма, която за дадено цяло число n, пресмята сумата: 
+package lqlq;
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		int n = scan.nextInt();
+		System.out.print("Въведете x:");
+		int x = scan.nextInt();
+		int nfak=1;
+		int xstepen=x;
+		double sum=1;
+		for (int i=1; i<=n-1; i++) {
+			nfak=nfak*i;
+			double delene=nfak/xstepen;
+			sum=sum+delene;
+			xstepen *=x;
+		}
+		System.out.print(sum);
+	}
+
+}
