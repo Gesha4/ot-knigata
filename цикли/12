@@ -1,0 +1,23 @@
+//Напишете програма, която преобразува дадено число от десетична в двоична бройна система.
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		int n = scan.nextInt();
+		int[] num=new int[32];
+		int counter = 0;
+		for (int i=0; n/2!=0; i++) {
+			int a = n%2;
+			num[counter]=a;
+			n=n/2;
+			counter ++;
+		}
+		System.out.print("Числото в двоичен вид е: ");
+		for (int i=0; counter==0; i++) {
+			System.out.print(num[counter]);
+			counter--;
+		}
+	}	
+}
