@@ -1,0 +1,17 @@
+//Напишете програма, която по дадено число N отпечатва случайно число между 1 и N 
+package lqlq;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		int n = scan.nextInt();
+		Random rand = new Random();
+		int num = rand.nextInt(n);
+		System.out.print(num+1);
+	}
+}
