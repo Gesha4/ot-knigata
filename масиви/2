@@ -1,0 +1,26 @@
+//Да се напише програма, която чете два масива от конзолата и проверява дали са еднакви.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете масив от 5 числа:");
+		int[] n =new int[5];
+		for (int i=0; i<=n.length-1; i++) {
+			n[i]= scan.nextInt();
+		}
+		System.out.print("Въведете масив от 5 числа:");
+		int[] m =new int[5];
+		for (int i=0; i<=m.length-1; i++) {
+			m[i]= scan.nextInt();
+		}
+		boolean equal=false;
+		for (int i=0; i<=4; i++) {
+			if (n[i]==m[i]) {
+				equal=true;
+			}
+		}
+		System.out.print(equal ? "Еднакви са." : "Не са еднакви");
+	}	
+}
