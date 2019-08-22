@@ -1,0 +1,39 @@
+//Напишете програма, която преобразува дадено число от десетична в шестнайсетична бройна система.
+
+import java.util.Scanner;
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		int n = scan.nextInt();
+		int[] hex=new int[16];
+		int index = 0;
+		while (n>0) {
+			if (n%16==10) {
+			hex[index]='A';
+			}
+			else if (n%16==11) {
+				hex[index]='B';
+			}
+			else if (n%16==12) {
+				hex[index]='C';
+			}
+			else if (n%16==13) {
+				hex[index]='D';
+			}
+			else if (n%16==14) {
+				hex[index]='E';
+			}
+			else if (n%16==15) {
+				hex[index]='F';
+			}
+			hex[index]=n%16;
+			n=n/16;
+			index++;
+		}
+		for (int i=index-1; i>=0; i--) {
+			System.out.print(hex[i]);
+		}
+	}	
+}
