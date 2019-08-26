@@ -17,6 +17,7 @@ public class lqlq {
 		long number= scan.nextLong();
 		System.out.print("Въведете факс номера :");
 		long fax= scan.nextLong();
+		scan.nextLine();
 		System.out.print("Въведете website:");
 		String website= scan.nextLine();
 		System.out.print("Въведете името на мениджъра :");
