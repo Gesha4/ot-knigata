@@ -12,7 +12,7 @@ public class lqlq {
 		System.out.print("Въведете x:");
 		int x = scan.nextInt();
 		int nfak=1;
-		int xstepen=x;
+		double xstepen=x;
 		double sum=1;
 		for (int i=1; i<=n-1; i++) {
 			nfak=nfak*i;
