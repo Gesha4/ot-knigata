@@ -12,7 +12,8 @@ public class lqlq {
 		System.out.print("Въведете цяло число :");
 		int b = scan.nextInt();
 		int c = a - b;
-		System.out.print(c>0 ? "По-голямото число е "+a : "По-голямото число е "+b);
+		c = c >> 7;
+		System.out.print(c==0 ? "По-голямото число е "+a : "По-голямото число е "+b);
 	}
 
 }
