@@ -1,0 +1,27 @@
+//Напишете програма, която намира максималната редица от еднакви елементи в масив.
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		int[] mas = { 2, 1, 1, 2, 3, 3, 2, 2, 2, 1 };
+		int start = 0;
+		int count = 0;
+		int start1 = 0;
+		int count1 = 0;
+		for (int i = 1; i < mas.length; i++) {
+			if (mas[start1] != mas[i]) {
+				start1 = i;
+				count1 = 0;
+			} else {
+				count1++;
+			}
+			if (count1 > count) {
+				start = start1;
+				count = count1;
+			}
+		}
+		for (int i = start; i <= start + count; i++) {
+			System.out.print(mas[i]);
+		}
+	}
+}
