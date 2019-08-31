@@ -1,0 +1,42 @@
+//Да се напише програма, която чете от конзолата две цели числа N и K, и масив от N елемента.
+//Да се намерят тези K елемента, които имат максимална сума.
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Въведете дължина на масива:");
+		int n = scan.nextInt();
+		int mas[] = new int[n];
+		System.out.println("Въведете елементите на масива:");
+		for (int i = 0; i < n; i++) {
+			mas[i] = scan.nextInt();
+		}
+		System.out.println("Въведете броя на желаните елементи:");
+		int k = scan.nextInt();
+		int elements[] = new int[k];
+		int index[] = new int[k];
+		for (int e = 0; e < k; e++) {
+			for (int m = 0; m < n; m++) {
+				boolean z = true;
+				if (elements[e] < mas[m]) {
+					for (int i = 0; i < k; i++) {
+						if (index[i] == m) {
+							z = false;
+						}
+					}
+					if (z == true) {
+						elements[e] = mas[m];
+						index[e] = m;
+					}
+				}
+			}
+		}
+		for (int e = 0; e < k; e++) {
+			System.out.print(elements[e]);
+			System.out.print(" ");
+		}
+	}
+}
