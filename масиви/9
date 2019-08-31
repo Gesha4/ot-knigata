@@ -1,0 +1,33 @@
+//Да се напише програма, която намира последователност от числа в масив, които имат сума 
+//равна на число, въведено от конзолата (ако има такава).
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		int[] arr = { 4, 3, 1, 4, 2, 5, 8 };
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int n = scan.nextInt();
+		int num = 0, count = 0, sum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			int count1 = 0;
+			int j = i;
+			sum = 0;
+			while (sum <= n && j < arr.length) {
+				sum += arr[j];
+				j++;
+				count1++;
+				if (sum == n) {
+					num = i;
+					count = count1;
+				}
+			}
+		}
+		for (int i = 0; i < count; i++) {
+			System.out.print(arr[num]);
+			num++;
+		}
+	}
+}
