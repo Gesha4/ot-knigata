@@ -1,0 +1,48 @@
+//Да се напише програма, която създава правоъгълна матрица с размер (n, m). 
+//Размерността и елементите на матрицата да се четат от конзолата. 
+//Да се намери подматрицата с размер (3,3), която има максимална сума.
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете брой редове на матрицата:");
+		int n = scan.nextInt();
+		System.out.print("Въведете брой колони на матрицата:");
+		int m = scan.nextInt();
+		int[][] mat = new int[n][m];
+		for (int i=0; i<m; i++) {
+			for (int j=0; j<n; j++) {
+				System.out.print("Въведете елемент от матрицата:");
+				mat[i][j] = scan.nextInt();
+			}
+		}
+		int sum = 0;
+		int temp_sum = 0;
+		int start_row = 0;
+		int start_cow = 0;
+		for (int i=0; i<m-2; i++) {
+			for (int j=0; j<n-2; j++) {
+				for (int temp_i=i; temp_i<=i+2; temp_i++) {
+					for (int temp_j=j; temp_j<=j+2; temp_j++) {
+						temp_sum += mat[temp_i][temp_j];
+					}
+				}
+				if (temp_sum > sum) {
+					sum = temp_sum;
+					start_row = j;
+					start_cow = i;
+				}
+				temp_sum = 0;
+			}
+		}
+		for (int i=start_cow; i<=start_cow+2; i++) {
+			for (int j=start_row; j<=start_row+2; j++) {
+				System.out.print(mat[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+}
