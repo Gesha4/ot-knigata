@@ -1,0 +1,36 @@
+//Да се напише програма, която създава масив с всички букви от латинската азбука. 
+//Да се даде възможност на потребител да въвежда дума от конзолата и в резултат да се 
+//извеждат индексите на буквите от думата.
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		char[] array = new char[52];
+		int index = 0;
+		for (char i = 'a'; i <= 'z'; i++) {
+			array[index] = i;
+			index++;
+		}
+		for (char i = 'A'; i <= 'Z'; i++) {
+			array[index] = i;
+			index++;
+		}
+		System.out.print("Въведете текст:");
+		String text = scan.nextLine();
+		int[] positions = new int[text.length()];
+		for (int i = 0; i < text.length(); i++) {
+			for (int j = 0; j < 52; j++) {
+				if (text.charAt(i) == array[j]) {
+					positions[i] = j;
+				}
+			}
+		}
+		System.out.println("Индексите са:");
+		for (int i = 0; i < positions.length; i++) {
+			System.out.print(positions[i] + " ");
+		}
+	}
+}
