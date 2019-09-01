@@ -1,0 +1,38 @@
+//Напишете програма, която създава следните квадратни матрици и ги извежда на конзолата във 
+//форматиран вид. Размерът на матриците се въвежда от конзолата.
+
+import java.util.Scanner;
+
+public class lqlq {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете размер на матрицата:");
+		int n = scan.nextInt();
+		int small_num = 1;
+		int big_num = n * n;
+		int[][] mat = new int[n][n];
+		for (int r = 0; r <= n - 1; r++) {
+			int i = 0;
+			for (int j = n - 1 - r; j <= n - 1; j++) {
+				mat[j][i] = small_num;
+				small_num++;
+				i++;
+			}
+		}
+		for (int r = n - 1; r >= 1; r--) {
+			int i = n - 1;
+			for (int j = n - 1 - r; j >= 0; j--) {
+				mat[j][i] = big_num;
+				big_num--;
+				i--;
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				System.out.print(mat[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+}
