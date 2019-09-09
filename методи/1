@@ -1,0 +1,19 @@
+
+//Напишете метод, който при подадено име отпечатва в конзолата "Hello, <name>!" 
+//(например "Hello, Peter!"). Напишете програма, която тества този метод.
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void printingName (String arg) {
+		System.out.printf("Hello, %s!",arg);
+	}
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете име:");
+		String name = scan.nextLine();
+		printingName(name);
+	}
+}
