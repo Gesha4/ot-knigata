@@ -1,0 +1,63 @@
+
+//Да се напише програма, която преобразува римските числа в арабски.
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		String n = scan.nextLine();
+		n.toUpperCase();
+		n.toCharArray();
+		int[] nums = new int [n.length()];
+		for (int i = 0; i < n.length(); i++) {
+			if (n.charAt(i) == 'M') {
+				nums [i] = 1000;
+			}
+			else if (n.charAt(i) == 'D') {
+				nums [i] = 500;
+			}
+			else if (n.charAt(i) == 'C') {
+				nums [i] = 100;
+			}
+			else if (n.charAt(i) == 'L') {
+				nums [i] = 50;
+			}
+			else if (n.charAt(i) == 'X') {
+				nums [i] = 10;
+			}
+			else if (n.charAt(i) == 'V') {
+				nums [i] = 5;
+			}
+			else if (n.charAt(i) == 'I') {
+				nums [i] = 1;
+			}
+		}
+		for (int i = 0; i < n.length(); i++) {
+			System.out.print(nums[i] + " ");
+		}
+		System.out.println();
+		int big_num = 0;
+		int small_num = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] == nums[i-1]) {
+				small_num = small_num + nums[i];
+			}
+			else if (nums[i] < nums[i-1]) {
+				big_num = big_num + small_num;
+				small_num = nums[i];
+			}
+			else if (nums[i] > nums[i-1]) {
+				small_num = nums[i] - small_num;
+				big_num = big_num + small_num;
+				small_num = nums[i];
+			}
+		}
+		if(nums[nums.length-1] < nums[nums.length-2] || nums[nums.length-1] == nums[nums.length-2]) {
+			big_num = big_num + small_num;
+		}
+		System.out.print(big_num);
+	}
+}
