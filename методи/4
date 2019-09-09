@@ -1,0 +1,31 @@
+
+//Напишете метод, който намира колко пъти дадено число се среща в даден масив.
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static int numTimes(int arg0, int[] arg1) {
+		int count = 0;
+		for (int i = 0; i < arg1.length; i++) {
+			if (arg1[i] == arg0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете дължина на числовата редица:");
+		int lenght = scan.nextInt();
+		int[] mas = new int[lenght];
+		for (int i = 0; i < lenght; i++) {
+			System.out.print("Въведете число:");
+			mas[i] = scan.nextInt();
+		}
+		System.out.print("Въведете търсеното число:");
+		int num = scan.nextInt();
+		System.out.print(numTimes(num, mas));
+	}
+}
