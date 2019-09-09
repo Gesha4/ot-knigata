@@ -1,0 +1,88 @@
+
+//Да се напише програма, която преобразува арабските числа в римски.
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		int n = scan.nextInt();
+		if (n > 3999) {
+			System.out.print("Грешно число.");
+		} else {
+			int ones = n % 10;
+			n = n / 10;
+			int dozens = n % 10;
+			n = n / 10;
+			int hundreds = n % 10;
+			n = n / 10;
+			int thousands = n % 10;
+			while (thousands > 0) {
+				System.out.print("M");
+				thousands--;
+			}
+			if (hundreds > 0) {
+				if (hundreds > 0 && hundreds < 4) {
+					while (hundreds > 0) {
+						System.out.print("C");
+						hundreds--;
+					}
+				} else if (hundreds == 4) {
+					System.out.print("CD");
+				} else if (hundreds == 5) {
+					System.out.print("D");
+				} else if (hundreds > 5 && hundreds < 9) {
+					System.out.print("D");
+					while (hundreds > 0) {
+						System.out.print("C");
+						hundreds -= 3;
+					}
+				} else if (hundreds == 9) {
+					System.out.print("CM");
+				}
+			}
+			if (dozens > 0) {
+				if (dozens > 0 && dozens < 4) {
+					while (dozens > 0) {
+						System.out.print("X");
+						dozens--;
+					}
+				} else if (dozens == 4) {
+					System.out.print("XL");
+				} else if (dozens == 5) {
+					System.out.print("L");
+				} else if (dozens > 5 && dozens < 9) {
+					System.out.print("L");
+					while (dozens > 0) {
+						System.out.print("X");
+						dozens -= 3;
+					}
+				} else if (dozens == 9) {
+					System.out.print("XC");
+				}
+			}
+			if (ones > 0) {
+				if (ones > 0 && ones < 4) {
+					while (ones > 0) {
+						System.out.print("I");
+						ones--;
+					}
+				} else if (ones == 4) {
+					System.out.print("IV");
+				} else if (ones == 5) {
+					System.out.print("V");
+				} else if (ones > 5 && ones < 9) {
+					System.out.print("V");
+					while (ones > 0) {
+						System.out.print("I");
+						ones -= 3;
+					}
+				} else if (ones == 9) {
+					System.out.print("IX");
+				}
+			}
+		}
+	}
+}
