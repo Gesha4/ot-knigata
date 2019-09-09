@@ -1,0 +1,45 @@
+
+//Да се напише програма, която преобразува двоично число в шестна-десетично.
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		long n = scan.nextLong();
+		char[] hex = new char[10];
+		int small_num = 0;
+		int index = 0;
+		while (n > 0) {
+			small_num = (int) (n % 10000);
+			int hex_small_num = small_num % 10;
+			small_num = small_num / 10;
+			for (int i = 2; i <= 8; i *= 2) {
+				hex_small_num = hex_small_num + (small_num % 10) * i;
+				small_num = small_num / 10;
+			}
+			if (hex_small_num == 10) {
+				hex[index] += 'A';
+			} else if (hex_small_num == 11) {
+				hex[index] += 'B';
+			} else if (hex_small_num == 12) {
+				hex[index] += 'C';
+			} else if (hex_small_num == 13) {
+				hex[index] += 'D';
+			} else if (hex_small_num == 14) {
+				hex[index] += 'E';
+			} else if (hex_small_num == 15) {
+				hex[index] += 'F';
+			} else {
+				hex[index] += hex_small_num + 48;
+			}
+			n = n / 10000;
+			index++;
+		}
+		for (int i = index - 1; i >= 0; i--) {
+			System.out.print(hex[i]);
+		}
+	}
+}
