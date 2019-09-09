@@ -1,0 +1,79 @@
+
+//Напишете програма, която решава следните задачи:
+//- Обръща последователността на цифрите на едно число.
+//- Пресмята средното аритметично на дадена редица.
+//- Решава линейното уравнение a * x + b = 0.
+//Създайте подходящи методи за всяка една от задачите.Напишете програмата така, че на 
+//потребителя да му бъде изведено текстово меню, от което да избира коя задача да решава.
+//Направете проверка на входните данни:
+//- Десетичното число трябва да е неотрицателно.
+//- Редицата не трябва да е празна.
+//- Коефициентът a не трябва да е 0.
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void printBackNum(int arg) {
+		while (arg % 10 != 0 || arg / 10 != 0) {
+			System.out.print(arg % 10);
+			arg = arg / 10;
+		}
+	}
+
+	public static float mid(float[] arg) {
+		float sum = 0;
+		for (int i = 0; i < arg.length; i++) {
+			sum = sum + arg[i];
+		}
+		float mid = sum / arg.length;
+		return mid;
+	}
+	
+	public static float linear_equation(float arg1, float arg2) {
+		float x = (-arg2)/arg1;
+		return x;
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("1.Обръща последователността на цифрите на едно число.");
+		System.out.println("2.Пресмята средното аритметично на дадена редица.");
+		System.out.println("3.Решава линейното уравнение a * x + b = 0.");
+		System.out.print("Коя задача да решим? - ");
+		int task = scan.nextInt();
+		if (task < 1 || task > 3) {
+			System.out.print("Грешен избор!");
+		} else if (task == 1) {
+			System.out.print("Въведете число:");
+			int num = scan.nextInt();
+			if (num > 0) {
+				printBackNum(num);
+			} else {
+				System.out.print("Грешно число!");
+			}
+		} else if (task == 2) {
+			System.out.print("Въведете дължина:");
+			int lenght = scan.nextInt();
+			float[] mas = new float[lenght];
+			for (int i = 0; i < lenght; i++) {
+				System.out.print("Въведете число:");
+				mas[i] = scan.nextFloat();
+			}
+			if (mid(mas) != 0) {
+				System.out.print("Средното аритметично на числата е " + mid(mas));
+			}
+		} else if (task == 3) {
+			System.out.print("Въведете a:");
+			float a = scan.nextFloat();
+			System.out.print("Въведете b:");
+			float b = scan.nextFloat();
+			if (a != 0) {
+				System.out.print("Отговора на уравнението е "+linear_equation(a, b));
+			}
+			else {
+				System.out.print("Това не е линйно уравнение");
+			}
+		}
+	}
+}
