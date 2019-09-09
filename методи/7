@@ -1,0 +1,21 @@
+
+//Напишете метод, който отпечатва цифрите на дадено десетично число в обратен ред. 
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void printBackNum(int arg) {
+		while (arg % 10 != 0 || arg / 10 != 0) {
+			System.out.print(arg%10);
+			arg = arg/10;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int num = scan.nextInt();
+		printBackNum(num);
+	}
+}
