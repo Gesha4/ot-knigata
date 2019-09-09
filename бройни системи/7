@@ -1,0 +1,59 @@
+
+//Да се напише програма, която преобразува шестнадесетично число в десетично.
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете n:");
+		String n = scan.nextLine();
+		n.toLowerCase();
+		n.toCharArray();
+		int num = 0;
+		if (n.charAt(n.length() - 1) == 'a') {
+			num = 10;
+		} else if (n.charAt(n.length() - 1) == 'b') {
+			num = 11;
+		} else if (n.charAt(n.length() - 1) == 'c') {
+			num = 12;
+		} else if (n.charAt(n.length() - 1) == 'd') {
+			num = 13;
+		} else if (n.charAt(n.length() - 1) == 'e') {
+			num = 14;
+		} else if (n.charAt(n.length() - 1) == 'f') {
+			num = 15;
+		} else {
+			num = n.charAt(n.length() - 1);
+			num = num - 48;
+		}
+		int small_num = 0;
+		int grading = 1;
+		for (int i = n.length() - 2; i >= 0; i--) {
+			int times = 1;
+			if (n.charAt(i) == 'a') {
+				small_num = 10;
+			} else if (n.charAt(i) == 'b') {
+				small_num = 11;
+			} else if (n.charAt(i) == 'c') {
+				small_num = 12;
+			} else if (n.charAt(i) == 'd') {
+				small_num = 13;
+			} else if (n.charAt(i) == 'e') {
+				small_num = 14;
+			} else if (n.charAt(i) == 'f') {
+				small_num = 15;
+			} else {
+				small_num = n.charAt(i) - 48;
+			}
+			for (int j = 1; j <= times; j++) {
+				grading *= 16;
+			}
+			times++;
+			small_num = small_num * grading;
+			num = num + small_num;
+		}
+		System.out.print(num);
+	}
+}
