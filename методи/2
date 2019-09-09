@@ -1,0 +1,31 @@
+
+//Създайте метод getMax() с два целочислени (int) параметъра, който връща по-голямото от двете
+//числа. Напишете програма, която прочита три цели числа от конзолата и отпечатва най-голямото
+//от тях, изпол-звайки метода getMax().
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static int getMax (int num1, int num2) {
+		int max = num1;
+		if (num2 > max) {
+			max = num2;
+		}
+		return max;
+	}
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int num1 = scan.nextInt();
+		System.out.print("Въведете число:");
+		int num2 = scan.nextInt();
+		System.out.print("Въведете число:");
+		int num3 = scan.nextInt();
+		int max1 = getMax(num1, num2);
+		int max2 = getMax(num2, num3);
+		int max = getMax(max1, max2);
+		System.out.print("Най-голямото число е "+max+".");
+	}
+}
