@@ -1,0 +1,24 @@
+
+//Напишете програма, която пресмята и отпечатва n! за всяко n в интервала [1..100]. 
+
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static double factorial(int arg) {
+		int num = 1;
+		double factorial = 1;
+		while (num <= arg) {
+			factorial = factorial * num;
+			num++;
+		}
+		return factorial;
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Въведете число:");
+		int num = scan.nextInt();
+		System.out.print(factorial(num));
+	}
+}
