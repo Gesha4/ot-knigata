@@ -1,0 +1,53 @@
+
+//Напишете програма, която генерира и отпечатва всички комбинации с повторение на k елемента над n-елементно множество.
+
+import java.util.Scanner;
+
+public class zadachi {
+	
+	public static void print(int[] arg) {
+		for (int i = 0; i < arg.length; i++) {
+			System.out.print(arg[i]);
+			if (i < arg.length - 1) {
+				System.out.print(",");
+			}
+		}
+		System.out.println();
+	}
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		int k = scan.nextInt();
+		int [] nums = new int[k];
+		int index = k - 1;
+		int start = 1;
+		boolean or = true;
+		for (int i = 0; i < nums.length; i++) {
+			nums[i] = 1;
+		}
+		do {
+			while (index >= 0) {
+				for(int i = start; i <= n; i++) {
+					nums[nums.length - 1] = i;
+					print(nums);
+				}
+				if (nums[0] == nums[nums.length - 2] && or) {
+					start++;
+					or = false;
+				}
+				index--;
+				if(index >= 0) {
+					nums[index] = start;
+				}
+			}
+			index = k - 2;
+			start++;
+			nums[index] = start;
+		} while (nums[0] <= n);
+		if (nums[0] == n) {
+			nums[nums.length - 1] = n;
+			print(nums);
+		}
+ 	}
+}
