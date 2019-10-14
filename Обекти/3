@@ -1,0 +1,16 @@
+//Дефинирайте свой собствен пакет chapter10 и поставете в него двата класа Cat и Sequence, които използвахме в примерите
+//на текущата тема. Направете още един собствен пакет с име chapter10.examples и в него направете клас, който извиква 
+//класовете Cat и Sequence.
+
+package chapter10.examples;
+
+import chapter10.*;
+
+public class examples {
+
+	public static void main(String[] args) {
+		cat newCat = new cat();
+		sequence newOne = new sequence();
+	}
+
+}
