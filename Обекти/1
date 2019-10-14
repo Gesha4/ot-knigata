@@ -1,0 +1,16 @@
+//Напишете програма, която извежда на стандартния изход броя на дните, часовете и минутите, които са 
+//изтекли от 1 януари 1970 година до момента на изпълнението на програмата. За реализацията използвайте класа System.
+
+public class zadachi {
+	
+
+	public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
+		long sec = startTime / 1000;
+		int mins = (int) (sec / 60);
+		int hours = mins / 60;
+		int days = hours / 24;
+		System.out.printf("От 1 януари 1970 година до сега са изминали %d дни, %d часове и %d минути.",
+		days, hours, mins);
+	}
+}
