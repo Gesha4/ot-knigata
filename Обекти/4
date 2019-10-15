@@ -1,0 +1,22 @@
+//Напишете програма, която създава 10 обекта от тип Cat, дава им имена от вида CatN, където N e
+//уникален пореден номер на обекта, и накрая извиква метода sayMiau() на всеки от тях. За 
+//реализацията използвайте вече дефинирания пакет chapter10.
+
+package chapter10.examples;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import chapter10.*;
+
+public class examples {
+
+	public static void main(String[] args) {
+		List<cat> newCat = new ArrayList<>(10);
+		for (int i = 0; i < 10; i++) {
+			newCat.add(new cat());
+			cat.name = "Cat" + sequence.nextValue();
+			cat.sayMiau();
+		}
+	}
+}
