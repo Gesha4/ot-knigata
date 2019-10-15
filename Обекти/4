@@ -4,17 +4,14 @@
 
 package chapter10.examples;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import chapter10.*;
 
 public class examples {
 
 	public static void main(String[] args) {
-		List<cat> newCat = new ArrayList<>(10);
-		for (int i = 0; i < 10; i++) {
-			newCat.add(new cat());
+		cat[] newCat = new cat[10];
+		for (int i = 0; i < newCat.length; i++) {
+			newCat[i] = new cat();
 			cat.name = "Cat" + sequence.nextValue();
 			cat.sayMiau();
 		}
