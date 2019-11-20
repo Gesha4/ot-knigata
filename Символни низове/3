@@ -1,0 +1,32 @@
+//Даден е текст. Напишете програма, която променя регистъра на буквите на всички места в текста, заградени с таговете <upcase> и
+//</upcase>. Таговете не могат да бъдат вложени.Пример:
+//We are living in a <upcase>yellow submarine</upcase>. We don't have <upcase>anything</upcase> else.
+//Резултат:
+//We are living in a YELLOW SUBMARINE. We don't have ANYTHING else.
+
+import java.util.Scanner;
+
+public class zadachi {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String line = scan.nextLine();
+		StringBuilder str = new StringBuilder(line);
+		String start = "<upcase>";
+		int indexStart = str.indexOf(start);
+		String stop = "</upcase>";
+		while (indexStart != -1) {
+			str.delete(indexStart, indexStart + 8);
+			int indexStop = str.indexOf(stop);
+			str.delete(indexStop, indexStop + 8);
+			String temp = str.substring(indexStart, indexStop);
+			temp = temp.toUpperCase();
+			str.delete(indexStart, indexStop + 1);
+			str.insert(indexStart, temp);
+			indexStart = str.indexOf(start, indexStart + 1);
+			indexStop = str.indexOf(stop, indexStop + 1);
+			
+		}
+		System.out.print(str);
+	}
+}
