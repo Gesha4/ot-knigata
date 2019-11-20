@@ -1,0 +1,16 @@
+
+//Напишете програма, която обръща думите в дадено изречение. Например: C# is not C++ and PHP is not Delphi
+//-> Delphi not is PHP and C++ not is C#.
+
+import java.util.Scanner;
+
+public class zadachi {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String[] line = scan.nextLine().split(" ");
+		for (int i = line.length - 1; i >= 0; i--) {
+			System.out.print(line[i]+" ");
+		}
+	}
+}
