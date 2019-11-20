@@ -1,0 +1,24 @@
+
+//Напишете програма, която приема URL адрес във формат: [protocol]://[server]/[resource] и извлича от него
+//протокол, сървър и ресурс. Например, при подаден адрес: http://www.devbg.org/forum/index.php резултатът е:
+//[protocol]="http"
+//[server]="www.devbg.org"
+//[resource]="/forum/index.php"
+
+import java.util.Scanner;
+
+public class zadachi {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String line = scan.nextLine();
+		StringBuilder messege = new StringBuilder(line);
+		int index = messege.indexOf(":");
+		StringBuilder protocol = new StringBuilder(messege.substring(0, index));
+		int serverStart = messege.indexOf("//");
+		int serverStop = messege.indexOf("/", serverStart + 2);
+		StringBuilder server = new StringBuilder(messege.substring(serverStart, serverStop));
+		StringBuilder resource = new StringBuilder(messege.substring(serverStop, messege.length() - 1));
+		System.out.printf("[protocol]=\"%s\"%n[server]=\"%s\"%n[resource]=\"%s\"", protocol, server, resource);
+	}
+}
