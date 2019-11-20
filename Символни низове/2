@@ -1,0 +1,21 @@
+//Напишете програма, която открива колко пъти даден подниз се съдържа в текст. Например, ако търсим подниза "in" в текста:
+//We are living in a yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking 
+//all the day. We will move out of it in 5 days. Резултатът е 9.
+
+import java.util.Scanner;
+
+public class zadachi {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String line = scan.nextLine();
+		String part = scan.nextLine();
+		int index = line.indexOf(part);
+		int times = 1;
+		while (index != -1) {
+			times++;
+			index = line.indexOf(part, index + 1);
+		}
+		System.out.print(times);
+	}
+}
