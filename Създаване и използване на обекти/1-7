@@ -1,0 +1,161 @@
+public class zadachi {
+	
+	public static class Student {
+		private String name;
+		private String middleName;
+		private String lastName;
+		private String course;
+		private String specialty;
+		private String univercity;
+		private String email;
+		private String phone;
+		private static int numStudents = 0;
+		
+		public Student() {
+			this.name = null;
+			this.middleName = null;
+			this.lastName = null;
+			this.course = null;
+			this.specialty = null;
+			this.univercity = null;
+			this.email = null;
+			this.phone = null;
+		}
+		
+		public Student (String name, String lastName, String univercity) {
+			this(name, null, lastName, null, null, univercity, null, null);
+		}
+		
+		public Student (String name, String lastName, String univercity, String course) {
+			this(name, lastName, univercity, course, null, null, null, null);
+		}
+		
+		
+		
+		public Student (String name, String middleName, String lastName, String course, String specialty,
+				String univercity, String email, String phone) {
+			this.name = name;
+			this.middleName = middleName;
+			this.lastName = lastName;
+			this.course = course;
+			this.specialty = specialty;
+			this.univercity = univercity;
+			this.email = email;
+			this.phone = phone;
+			numStudents++;
+		}
+		
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getMiddleName() {
+			return middleName;
+		}
+
+		public void setMiddleName(String middleName) {
+			this.middleName = middleName;
+		}
+
+		public String getLastName() {
+			return lastName;
+		}
+
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+
+		public String getCourse() {
+			return course;
+		}
+
+		public void setCourse(String course) {
+			this.course = course;
+		}
+
+		public String getSpecialty() {
+			return specialty;
+		}
+
+		public void setSpecialty(String specialty) {
+			this.specialty = specialty;
+		}
+
+		public String getUnivercity() {
+			return univercity;
+		}
+
+		public void setUnivercity(String univercity) {
+			this.univercity = univercity;
+		}
+
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+		public String getPhone() {
+			return phone;
+		}
+
+		public void setPhone(String phone) {
+			this.phone = phone;
+		}
+
+		public static int getNumStudents() {
+			return numStudents;
+		}
+
+		public static void setNumStudents(int numStudents) {
+			Student.numStudents = numStudents;
+		}
+
+		@Override 
+		public String toString(){
+			return String.format("Name: %s%nMiddle name: %s%nLast name: %s%nCourse: %s%nSpecialty: %s%n"
+					+ "Univercity: %s%nEmail: %s%nPhone: %s%n", this.name, this.middleName, this.lastName, 
+					this.course, this.specialty, this.univercity, this.email, this.phone);
+		}
+		
+	}
+	
+	static class Students{
+		static Student student1 = new Student();
+		static Student student2 = new Student();
+		static Student student3 = new Student();
+		public static Student getStudent1() {
+			return student1;
+		}
+		public static void setStudent1(Student student1) {
+			Students.student1 = student1;
+		}
+		public static Student getStudent2() {
+			return student2;
+		}
+		public static void setStudent2(Student student2) {
+			Students.student2 = student2;
+		}
+		public static Student getStudent3() {
+			return student3;
+		}
+		public static void setStudent3(Student student3) {
+			Students.student3 = student3;
+		}
+	}
+	
+	public static void main(String[] args) {
+		Student student1 = new Student("Georgi","Dimitrov","TU Varna");
+		System.out.print(student1);
+		Students test = new Students();
+		System.out.print(test.getStudent1());
+		System.out.print(test.getStudent2());
+		System.out.print(test.getStudent3());
+	}
+}
