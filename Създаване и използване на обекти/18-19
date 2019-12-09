@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class zadachi {
+	
+	public static class Book {
+		private String title;
+		private String author;
+		private String publisher;
+		private int year;
+		private int isbn;
+		public Book(String title, String author, String publisher, int year, int isbn) {
+			this.title = title;
+			this.author = author;
+			this.publisher = publisher;
+			this.year = year;
+			this.isbn = isbn;
+		}
+		public String getTitle() {
+			return title;
+		}
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		public String getAuthor() {
+			return author;
+		}
+		public void setAuthor(String author) {
+			this.author = author;
+		}
+		public String getPublisher() {
+			return publisher;
+		}
+		public void setPublisher(String publisher) {
+			this.publisher = publisher;
+		}
+		public int getYear() {
+			return year;
+		}
+		public void setYear(int year) {
+			this.year = year;
+		}
+		public int getIsbn() {
+			return isbn;
+		}
+		public void setIsbn(int isbn) {
+			this.isbn = isbn;
+		}
+		@Override
+		public String toString() {
+			return "Book [title=" + title + ", author=" + author + ", publisher=" + publisher + ", year=" + year
+					+ ", isbn=" + isbn + "]";
+		}
+	}
+	
+	public static class Library {
+		private String name;
+		private List<Book> books = new ArrayList<>();
+		public Library(String name) {
+			this.name = name;
+		}
+		public void addBook(String title, String author, String publisher, int year, int isbn) {
+			books.add(new Book (title, author, publisher, year, isbn));
+		}
+		public void removeBook(int index) {
+			books.remove(index);
+		}
+		public void bookInfo(int index) {
+			System.out.println(books.get(index).toString());
+		}
+		public int bookByAuthor(String author) {
+			int search = -1;
+			for (int i = 0; i < books.size(); i++) {
+				if (books.get(i).getAuthor().equals(author)) {
+					search = i;
+				}
+			}
+			return search;
+		}
+	}
+	
+	public static void main(String[] args) {
+			Library library = new Library("Иван Вазов");
+			library.addBook("It", "Stiven King", "lqlq", 1984, 35465465);
+			library.addBook("Black tower", "Stiven King", "sgfg", 1997, 645313);
+			library.addBook("Inferno", "Dan Brown", "Bard", 2003, 68465);
+			library.addBook("Под игото", "Иван Вазов", "Фют", 1968, 35464968);
+			for (Book book : library.books) {
+				System.out.println(book.toString());
+			}
+			int have = library.bookByAuthor("Stiven King");
+			while(have != -1) {
+				library.removeBook(have);
+				have = library.bookByAuthor("Stiven King");
+			}
+			for (Book book : library.books) {
+				System.out.println(book.toString());
+			}
+	}
+}
