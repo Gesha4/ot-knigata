@@ -1,0 +1,207 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class zadachi {
+	
+	public class Battery {
+		private String model;
+		private int idleTime;
+		private int hoursTalk;
+		
+		public Battery(String model, int idlTime, int hoursTalk) {
+			this.model = model;
+			this.idleTime = idleTime;
+			this.hoursTalk = hoursTalk;
+		}
+		public Battery(String model) {
+			this(model,0,0);
+		}
+		public Battery(String model, int idleTime) {
+			this(model, idleTime, 0);
+		}
+		public String getModel() {
+			return model;
+		}
+		public void setModel(String model) {
+			this.model = model;
+		}
+		public int getIdleTime() {
+			return idleTime;
+		}
+		public void setIdleTime(int idleTime) {
+			this.idleTime = idleTime;
+		}
+		public int getHoursTalk() {
+			return hoursTalk;
+		}
+		public void setHoursTalk(int hoursTalk) {
+			this.hoursTalk = hoursTalk;
+		}
+	}
+	
+	public class Display{
+		private int size;
+		private double colors;
+		
+		public Display(int size, double colors) {
+			this.size = size;
+			this.colors = colors;
+		}
+		public Display(short size) {
+			this(size,0);
+		}
+		public Display(double colors) {
+			this(0,colors);
+		}
+		public int getSize() {
+			return size;
+		}
+		public void setSize(int size) {
+			this.size = size;
+		}
+		public double getColors() {
+			return colors;
+		}
+		public void setColors(double colors) {
+			this.colors = colors;
+		}
+	}
+	
+	public static class Call {
+		private String date;
+		private String start;
+		private int duration;
+		
+		public Call(String date, String start, int duration) {
+			this.date = date;
+			this.start = start;
+			this.duration = duration;
+		}
+		
+		public int getDuration () {
+			return duration;
+		}
+		
+		@Override
+		public String toString() {
+			return String.format("Date: %s%nStart at: %s%nDuration: %s%n", this.date, this.start, this.duration);
+		}
+	}
+	
+	public static class GSM {
+		private String model;
+		private String madeBy;
+		private double price;
+		private String owner;
+		private List<Call> callHistory = new ArrayList<>();
+		static final GSM nokiaN95 = new GSM("Nokia N95");
+		
+		public GSM (String model, String madeBy, double price, String owner) {
+			this.model = model;
+			this.madeBy = madeBy;
+			this.price = price;
+			this.owner = owner;
+		}
+		public GSM (String model) {
+			this(model, null, 0, null);
+		}
+		public GSM (String model, String madeBy) {
+			this(model, madeBy, 0, null);
+		}
+		public GSM (String model, double price) {
+			this(model, null, price, null);
+		}
+		public GSM (String model, String madeBy, double price) {
+			this(model, madeBy, price, null);
+		}
+		
+		public String info() {
+			return String.format("Model: %s%nMade by: %s%nPrice: %s%nOwner: %s%n", this.model, this.madeBy,
+					this.price, this.owner);
+		}
+		public void infoNokiaN95() {
+			System.out.print(nokiaN95.info());
+		}
+		public String getModel() {
+			return model;
+		}
+		public void setModel(String model) {
+			this.model = model;
+		}
+		public String getMadeBy() {
+			return madeBy;
+		}
+		public void setMadeBy(String madeBy) {
+			this.madeBy = madeBy;
+		}
+		public double getPrice() {
+			return price;
+		}
+		public void setPrice(int price) {
+			this.price = price;
+		}
+		public String getOwner() {
+			return owner;
+		}
+		public void setOwner(String owner) {
+			this.owner = owner;
+		}
+		
+		public void addCall(String date, String start, int duration) {
+			this.callHistory.add(new Call(date, start, duration));
+		}
+		public void removeCall(int index) {
+			callHistory.remove(index);
+		}
+		public void removeAll() {
+			callHistory.removeAll(callHistory);
+		}
+		public double allCallsPrice(double price) {
+			double sum = 0;
+			for (Call call : callHistory) {
+				sum += call.getDuration();
+			}
+			sum = sum * price;
+			return sum;
+		}
+		
+		public void callHsitory() {
+			for (Call call : callHistory) {
+				System.out.println(call.toString());
+			}
+		}
+		
+		@Override
+		public String toString() {
+			return String.format("GSM model: %s%nmade by: %s%nprice: %.2f%nowner: %s%n", this.model,
+					this.madeBy, this.price, this.owner);
+		}	
+	}
+	
+	public static void main(String[] args) {
+			List<GSM> phones = new ArrayList<>();
+			phones.add(new GSM("Samsung", 968.99));
+			phones.add(new GSM("Iphone", "Apple"));
+			phones.add(new GSM("Huawei", 280.45));
+			for (GSM phone : phones) {
+				System.out.print(phone);
+			}
+			System.out.print(phones.get(0).nokiaN95.info());
+			phones.get(0).addCall("10-02-2015", "14:23", 23);
+			phones.get(0).addCall("11-02-2015", "17:41", 14);
+			phones.get(0).addCall("12-02-2015", "08:33", 5);
+			double callPrice = phones.get(0).allCallsPrice(0.37);
+			System.out.println(callPrice);
+			int lenght = 0;
+			int index = 0;
+			for (int i = 0; i < phones.get(0).callHistory.size(); i++) {
+				if (phones.get(0).callHistory.get(i).getDuration() > lenght) {
+					lenght = phones.get(0).callHistory.get(i).getDuration();
+					index = i;
+				}
+			}
+			phones.get(0).callHistory.remove(index);
+			callPrice = phones.get(0).allCallsPrice(0.37);
+			System.out.println(callPrice);
+	}
+}
