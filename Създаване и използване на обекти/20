@@ -1,0 +1,141 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class zadachi {
+	
+	public static class Classs {
+		private String name;
+		private List<Teacher> teachers = new ArrayList<>();
+		public Classs(String name) {
+			super();
+			this.name = name;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public void addTeachers(Teacher teacher) {
+			this.teachers.add(teacher);
+		}
+		@Override
+		public String toString() {
+			return "Classs [Class name=" + name + "" + "]";
+		}
+		public void teachersInClas() {
+			for (Teacher teacher : teachers) {
+				System.out.println(teacher.toString());
+			}
+		}
+	}
+	
+	public static class Student {
+		private String name;
+		private int id;
+		public Student(String name, int id) {
+			this.name = name;
+			this.id = id;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		@Override
+		public String toString() {
+			return "Student [name=" + name + ", id=" + id + "]";
+		}
+	}
+	
+	public static class Teacher {
+		private String name;
+		private List<Subject> subjects = new ArrayList<>();
+		public Teacher(String name) {
+			this.name = name;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public void addSubjects(Subject subject) {
+			this.subjects.add(subject);
+		}
+		public void removeSubject(Subject subject) {
+			this.subjects.remove(subject);
+		}
+		@Override
+		public String toString() {
+			return "Teacher [name=" + name + "" + "]";
+		}
+		public void subjectsToTeach() {
+			for (Subject subject : subjects) {
+				System.out.println(this.name+" "+ subject.toString());
+			}
+		}
+	}
+	
+	public static class Subject {
+		private String name;
+		private int lessons;
+		private int exercises;
+		public Subject(String name, int lessons, int exercises) {
+			this.name = name;
+			this.lessons = lessons;
+			this.exercises = exercises;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int getLessons() {
+			return lessons;
+		}
+		public void setLessons(int lessons) {
+			this.lessons = lessons;
+		}
+		public int getExercises() {
+			return exercises;
+		}
+		public void setExercises(int exercises) {
+			this.exercises = exercises;
+		}
+		@Override
+		public String toString() {
+			return "Subject-[" + name + ", lessons=" + lessons + ", exercises=" + exercises + "]";
+		}
+	}
+	
+	public static void main(String[] args) {
+			Classs clas = new Classs("4a");
+			Teacher teacher1 = new Teacher("Ivan");
+			Teacher teacher2 = new Teacher("Maria");
+			Subject math = new Subject("Math", 123, 150);
+			Subject bulg = new Subject("Bulgarian langage", 150, 174);
+			Subject sport = new Subject("Sport", 130, 130);
+			Subject music = new Subject("Music", 64, 42);
+			Subject phisics = new Subject("Phisics", 84, 65);
+			teacher1.addSubjects(math);
+			teacher1.addSubjects(sport);
+			teacher1.addSubjects(phisics);
+			teacher2.addSubjects(bulg);
+			teacher2.addSubjects(music);
+			teacher2.addSubjects(math);
+			clas.addTeachers(teacher1);
+			clas.addTeachers(teacher2);
+			System.out.println(teacher1);
+			clas.teachersInClas();
+			teacher1.subjectsToTeach();
+		}
+}
