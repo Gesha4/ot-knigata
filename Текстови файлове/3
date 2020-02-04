@@ -1,0 +1,55 @@
+//Напишете програма, която чете от файл квадратна матрица от цели числа и намира подматрицата с размери 2 х 2 с най-голяма сума 
+//и записва тази сума в отделен текстов файл. Първия ред на входния файл съдържа големината на записаната матрица (N). Следващите
+//N реда съдържат по N числа, разделени с интервал.
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		File file = new File("matrix.txt");
+		Scanner fileReader = null;
+		try {
+			fileReader = new Scanner(file);
+			int size = Integer.parseInt(fileReader.nextLine());
+			int[][] matrix = new int[size][size];
+			for(int i = 0; i < size; i++) {
+				String[] line = fileReader.nextLine().split(" ");
+				for(int j = 0; j < size; j++) {
+					if(line[j].contains("-")) {
+						matrix[i][j] = Integer.parseInt("-" + line[j].substring(1));
+					} else {
+						matrix[i][j] = Integer.parseInt(line[j]);
+					}
+				}
+			}
+			int maxSum = 0;
+			for(int i = 0; i < size - 1; i++) {
+				for(int j = 0; j < size - 1; j++) {
+					int sum = matrix[i][j] + matrix[i][j+1] + matrix[i+1][j] + matrix[i+1][j+1];
+					if(sum > maxSum) {
+						maxSum = sum;
+					}
+				}
+			}
+			PrintStream fileWriter = new PrintStream("MatrixMaxSum.txt", "Windows-1251");
+			fileWriter.println(maxSum);
+			fileWriter.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("File " + file + " not found!");
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("Unsupported encoding");
+		} finally {
+			if (fileReader != null) {
+				fileReader.close();
+			}
+		}
+		
+	}
+}
