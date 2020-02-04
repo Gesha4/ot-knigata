@@ -30,7 +30,7 @@ public class zadachi {
 		} catch (FileNotFoundException e) {
 			System.out.println("File " + file + " not found!");
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			System.out.println("Unsupported encoding");
 		} finally {
 			if (fileReader != null) {
 				fileReader.close();
