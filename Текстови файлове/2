@@ -1,0 +1,41 @@
+//2. Напишете програма, която чете списък от имена от един текстов файл, сортира ги по азбучен ред и ги запазва в друг файл.
+//Имената да са с латински букви. На всеки ред от файла, където са записани имената, има точно по едно име. На всеки ред от
+//файла с резултата също трябва да има само по едно име.
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		File file = new File("names.txt");
+		Scanner fileReader = null;
+		List<String> names = new ArrayList<>();
+		try {
+			fileReader = new Scanner(file);
+			while(fileReader.hasNextLine()) {
+				names.add(fileReader.nextLine());
+			}
+			names.sort((f,s) -> f.compareTo(s));
+			PrintStream fileWriter = new PrintStream("Names - sorted.txt", "Windows-1251");
+			for(String name : names) {
+				fileWriter.println(name);
+			}
+			fileWriter.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("File " + file + " not found!");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} finally {
+			if (fileReader != null) {
+				fileReader.close();
+			}
+		}
+		
+	}
+}
