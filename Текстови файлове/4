@@ -1,0 +1,53 @@
+//Напишете програма, която заменя всяко срещане на подниза "start" с "finish" в текстов файл. Можете ли да пренапишете 
+//програмата така, че да заменя само цели думи?
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		File file = new File("text.txt");
+		Scanner fileReader = null;
+		try {
+			fileReader = new Scanner(file);
+			PrintStream fileWriter = new PrintStream("replacedtext.txt", "Windows-1251");
+			while(fileReader.hasNextLine()) {
+				StringBuilder line = new StringBuilder(fileReader.nextLine());
+				int index = line.indexOf("start");
+				while(index != -1) {
+					if(index == 0) {
+						if(line.charAt(5) == ' ') {
+							line.replace(index, index + 5, "finish");
+						}
+					} else {
+						if((line.charAt(index - 1) == ' ' && line.charAt(index + 5) == ' ')){
+							line.replace(index, index + 5, "finish");
+						} else if((line.charAt(index) == ' ' && index + 5 == line.length() - 1)) {
+							line.delete(index + 1, line.length());{
+								line.append("finish");
+							}
+						}
+					}
+				index = line.substring(index + 1).indexOf("start");
+				if(index == 0) {
+					index = -1;
+				}
+			}
+			fileWriter.println(line);
+		}
+			fileWriter.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("File " + file + " not found!");
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("Unsupported encoding");
+		} finally {
+			if (fileReader != null) {
+				fileReader.close();
+			}
+		}
+	}
+}
