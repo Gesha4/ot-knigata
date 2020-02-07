@@ -1,0 +1,55 @@
+//Създайте хеш таблица с ключ думите от words.txt и стойност броя срещания на всяка дума. Четете ред по ред text.txt и 
+//разделяйте всеки ред на думи. Проверете дали някоя от получените при разделянето думи се среща в хеш таблицата и при нужда 
+//прибавяте 1 към броя на срещанията й.
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		Map<String, Integer> words = new HashMap<>();
+		try {
+			Scanner fileReader = new Scanner(new File("words.txt"));
+			while(fileReader.hasNextLine()) {
+				String line = fileReader.nextLine();
+				if(!words.containsKey(line)) {
+					words.put(line, 0);
+				}
+			}
+			fileReader = new Scanner(new File("text.txt"));
+			while(fileReader.hasNextLine()) {
+				String line = fileReader.nextLine();
+				for(Entry<String, Integer> word : words.entrySet()) {
+					int index = line.indexOf(word.getKey());
+					while(index != -1) {
+						words.put(word.getKey(), word.getValue() + 1);
+						index = line.indexOf(word.getKey(), index + 1);
+					}
+				}
+			}
+			fileReader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+		}
+		try {
+			PrintStream fileWriter = new PrintStream("result.txt","windows-1251");
+			words.entrySet().stream().sorted((f,s) -> {
+				return s.getValue().compareTo(f.getValue());
+			}).forEach(entry -> {
+				fileWriter.println(entry.getKey() + " - " + entry.getValue());
+			});
+			fileWriter.close();
+		} catch (FileNotFoundException e) {
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("Unsupported encoding");
+		}
+	}
+}
