@@ -1,0 +1,43 @@
+//Реализирайте сортиране на числа в динамичен свързан списък, без да използвате допълнителен масив.
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		List<Integer> numbers = new ArrayList<>();
+		String[] input = scan.nextLine().split(" ");
+		for(String num : input) {
+			numbers.add(Integer.parseInt(num));
+		}
+		int index = 0;
+		while(index < numbers.size() - 1) {
+			if(index == 0) {
+				if(numbers.get(index) < numbers.get(index + 1)) {
+					index++;
+				} else if(numbers.get(index) == numbers.get(index + 1)) {
+					index++;
+				} else {
+					numbers.add(numbers.get(index));
+					numbers.remove(index);
+				}
+			} else {
+				if(numbers.get(index) < numbers.get(index + 1)) {
+					index++;
+				} else if(numbers.get(index) == numbers.get(index + 1)) {
+					index++;
+				} else {
+					numbers.add(numbers.get(index));
+					numbers.remove(index);
+					index--;
+				}
+			}
+		}
+		for(int num : numbers) {
+			System.out.println(num);
+		}
+	}
+}
