@@ -1,0 +1,27 @@
+//Да се напише програма, която намира броя на срещанията на дадено число в дадено дърво от числа.
+
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		TreeSet<Integer> nums = new TreeSet<>();
+		int search = Integer.parseInt(scan.nextLine());
+		int times = 0;
+		String line = scan.nextLine();
+		while(!line.equals("end")) {
+			nums.add(Integer.parseInt(line));
+			if(Integer.parseInt(line) == search && nums.add(Integer.parseInt(line)) == false) {
+				times++;
+			}
+			line = scan.nextLine();
+		}
+		if(times != 0) {
+			System.out.println(times + " times");
+		} else {
+			System.out.println("No such nummber");
+		}
+	}
+}
