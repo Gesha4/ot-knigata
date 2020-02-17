@@ -1,0 +1,21 @@
+//Реализирайте хеш-таблица, която съхранява тройки стойности (ключ1, ключ2, стойност) и позволява бързо търсене по двойка 
+//ключове и добавяне на тройки стойности.
+
+class Table {
+		private String value;
+		private Map<String,List<Integer>> map = new HashMap<>();
+		Table(String key,int value){
+			if(!map.containsKey(key)) {
+				map.put(key, new ArrayList<Integer>());
+				map.get(key).add(value);
+			} else {
+				map.get(key).add(value);
+			}
+		}
+		public Integer getValue(int key, int position) {
+			return map.get(key).get(position);
+		}
+		public void addValue(String key, int value) {
+			map.get(key).add(value);
+		}	
+	}
