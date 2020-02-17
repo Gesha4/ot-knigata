@@ -1,0 +1,37 @@
+//Напишете програма, която премахва всички числа, които се срещат нечетен брой пъти в дадена редица. Например, ако имаме 
+//началната редица {4, 2, 2, 5, 2, 3, 2, 3, 1, 5, 2, 6, 6, 6}, трябва да я редуцираме до редицата {5, 3, 3, 5}.
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		List<Integer> nums = new ArrayList<>();
+		Map<Integer, Integer> times = new HashMap<>();
+		int[] n = Arrays.stream(scan.nextLine().split(", ")).mapToInt(Integer::parseInt).toArray();
+		for(int i = 0; i < n.length; i++) {
+			nums.add(n[i]);
+		}
+		for(int num : nums) {
+			if(times.containsKey(num)) {
+				times.put(num, times.get(num) + 1);
+			} else {
+				times.put(num, 1);
+			}
+		}
+		for(int i = n.length - 1; i >= 0; i--) {
+			if(times.get(n[i]) % 2 != 0 && nums.contains(n[i])) {
+				nums.remove(i);
+			}
+		}
+		for(int num : nums) {
+			System.out.print(num + " ");
+		}
+	}
+}
