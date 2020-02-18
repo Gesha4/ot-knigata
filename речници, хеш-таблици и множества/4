@@ -1,0 +1,67 @@
+//Дефинирайте клас TreeMultiSet<T>, който позволява да пазим съвкупност от елементи, подредени по големина и позволява 
+//повторения на някои от елементите. Реализирайте операциите добавяне на елемент, търсене на броя срещания на даден елемент, 
+//изтриване на елемент, итератор, намиране на най-малък / най-голям елемент, изтриване на най-малък / най-голям елемент. 
+//Реализирайте възможност за подаване на външен Comparator<T> за сравнение на елементите.
+
+public class TreeMultiSet{
+		private Map<String, Integer> map = new TreeMap<>();
+		public Map<String, Integer> getMap() {
+			return map;
+		}
+		public TreeMultiSet(Map<String, Integer> map) {
+			this.map = map;
+		}
+		public void add(String element) {
+			if(!map.containsKey(element)) {
+				map.put(element, 1);
+			} else {
+				map.put(element, map.get(element) + 1);
+			}
+		}
+		public int count(String element) {
+			if(map.containsKey(element)) {
+				return map.get(element);
+			} else {
+				return -1;
+			}
+		}
+		public void delete(String element) {
+			if(map.containsKey(element)) {
+				map.remove(element);
+			} else {
+				System.out.println("No such element!");
+			}
+		}
+		public String iterator() {
+			for(Entry<String, Integer> element : map.entrySet()) {
+				return element.getKey();
+			}
+			return null;
+		}
+		public String small() {
+			return map.toString().substring(0, map.toString().indexOf("@"));
+		}
+		public String big() {
+			return map.toString().substring(map.toString().lastIndexOf("@") + 1, map.toString().length());
+		}
+		public void deleteSmallest() {
+			String element = map.toString().substring(0, map.toString().indexOf("@"));
+			map.remove(element);
+		}
+		public void deleteBigest() {
+			String element = map.toString().substring(map.toString().lastIndexOf("@") + 1, map.toString().length());
+			map.remove(element);
+		}
+		public void comparing(String compare) {
+			if(!map.isEmpty()) {
+				boolean small = true;
+				for(Entry<String, Integer> element : map.entrySet()) {
+					if(small && element.getKey().compareTo(compare) == 1) {
+						System.out.println(compare + " is smaller than " + element.getKey());
+					}
+				}
+			} else {
+				System.out.println("This object is empthy!");
+			}
+		}
+	}
