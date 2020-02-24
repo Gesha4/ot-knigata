@@ -1,0 +1,32 @@
+//Даден е списък с времената на пристигане и заминаване на всички автобуси от дадена автогара. Да се напише програма, която 
+//по даден интервал (начало, край) намира броя автобуси, които успяват да пристигнат и да напуснат автогарата. Пример: Имаме 
+//данните за следните автобуси: [08:24-08:33], [08:20-09:00], [08:32-08:37], [09:00-09:15]. Даден е интервалът [08:22-09:05]. 
+//Броят автобуси, които идват и си тръгват в рамките на този интервал е 2.
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class zadachi {
+		
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String[] input = scan.nextLine().split(", ");
+		String[] interval = scan.nextLine().split("-");
+		Map<String, String> busses = new HashMap<>();
+		for(int i = 0; i < input.length; i++) {
+			String[] bus = input[i].split("-");
+			busses.put(bus[0], bus[1]);
+		}
+		int count = 0;
+		for(Entry<String, String> bus : busses.entrySet()) {
+			if(bus.getKey().compareTo(interval[0]) >= 0) {
+				if(bus.getValue().compareTo(interval[1]) <= 0) {
+					count++;
+				}
+			}
+		}
+		System.out.println(count);
+	}		
+}
