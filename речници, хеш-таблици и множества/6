@@ -1,0 +1,67 @@
+//Дадена е редица P с цели числа (1 < P < 50 000) и число N. Щастлива подредица в редицата P наричаме всяка съвкупност, състояща
+//се от последователни числа от P, чиято сума е N. Да си представим, че имаме редицата S, състояща се от всички щастливи подредици
+//в P, подредени в намаляващ ред спрямо дължината им. Напишете програма, която извежда първите 10 елемента на S. Пример:
+//Имаме N=5 и редицата P={1, 1, 2, 1, -1, 2, 3, -1, 1, 2, 3, 5, 1, -1, 2, 3}.
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+public class zadachi {
+
+	public static String findLink(int[] nums, int i, int number) {
+		String link = "NO";
+		List<Integer> num = new ArrayList<>(); 
+		int sum = 0;
+		while(sum != number) {
+			sum += nums[i];
+			num.add(nums[i]);
+			i++;
+			if(i == nums.length) {
+				break;
+			}
+		}
+		if(sum == number) {
+			StringBuilder string = new StringBuilder();
+			string.append("[" + num.get(0));
+			for(int j = 1; j < num.size(); j++) {
+				string.append(", " + num.get(j));
+			}
+			string.append("]");
+			link = string.toString();
+		}
+		return link;
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int[] nums = Arrays.stream(scan.nextLine().split(", ")).mapToInt(Integer::parseInt).toArray();
+		int number = Integer.parseInt(scan.nextLine());
+		List<String> links = new ArrayList<>();
+		for (int i = 0; i < nums.length; i++) {
+			String link = findLink(nums, i, number);
+			if (!link.equals("NO")) {
+				links.add(link);
+			}
+		}
+		links.sort(Comparator.naturalOrder());
+		links.sort((f,s) -> {
+			if((s.length() - f.length()) < 0) {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		if(links.size() <= 10) {
+			for (String aLink : links) {
+				System.out.println(aLink);
+			}
+		} else {
+			for(int i = 0; i < 10; i++) {
+				System.out.println(links.get(i));
+			}
+		}
+	}
+}
