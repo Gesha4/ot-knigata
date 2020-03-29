@@ -1,0 +1,32 @@
+//Инициализирайте масив от 10 работника и ги сортирайте по заплата в намаляващ ред.
+//package
+package zadachi;
+
+public class Worker extends Human implements Comparable<Worker>{
+	private Double pay;
+	private double hoursWorked;
+	public Worker(String name, String familyName, double pay, double hoursWorked) {
+		super(name, familyName);
+		this.pay = pay;
+		this.hoursWorked = hoursWorked;
+	}
+	public double getPay() {
+		return pay;
+	}
+	public void setPay(double pay) {
+		this.pay = pay;
+	}
+	public double getHoursWorked() {
+		return hoursWorked;
+	}
+	public void setHoursWorked(double hoursWorked) {
+		this.hoursWorked = hoursWorked;
+	}
+	public double getPayForHour() {
+		return pay / hoursWorked;
+	}
+	@Override
+	public int compareTo(Worker w) {
+		return this.pay.compareTo(w.getPay());
+	}
+}
