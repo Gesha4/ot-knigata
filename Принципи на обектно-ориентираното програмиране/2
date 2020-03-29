@@ -1,0 +1,21 @@
+//Инициализирайте масив от 10 студента и ги сортирайте по оценка в нарастващ ред. Използвайте Java интерфейса java.lang.Comparable.
+//package
+package zadachi;
+
+public class Student extends Human implements Comparable<Student>{
+	private Double assessment;
+	public Student(String name, String familyName, double assessment) {
+		super(name, familyName);
+		this.assessment = assessment;
+	}
+	public double getAssessment() {
+		return assessment;
+	}
+	public void setAssessment(double assessment) {
+		this.assessment = assessment;
+	}
+	@Override
+	public int compareTo(Student s) {
+		return this.assessment.compareTo(s.getAssessment());
+	}
+}
