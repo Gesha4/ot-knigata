@@ -1,0 +1,70 @@
+//Дефинирайте клас Human със свойства "собствено име" и "фамилно име". Дефинирайте клас Student, наследяващ Human, който има 
+//свойство "оценка". Дефинирайте клас Worker, наследяващ Human, със свойства "надница" и "изработени часове". Имплементирайте и 
+//метод "изчисли надница за 1 час", който смята колко получава работникът за 1 час работа, на базата на надницата и изработените 
+//часове. Напишете съответните конструктори и методи за достъп до полетата (свойства).
+//packeges
+package zadachi;
+
+public class Human {
+	private String name;
+	private String familyName;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getFamilyName() {
+		return familyName;
+	}
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
+	public Human(String name, String familyName) {
+		this.name = name;
+		this.familyName = familyName;
+	}
+}
+
+package zadachi;
+
+public class Student extends Human{
+	private double assessment;
+	public Student(String name, String familyName, double assessment) {
+		super(name, familyName);
+		this.assessment = assessment;
+	}
+	public double getAssessment() {
+		return assessment;
+	}
+	public void setAssessment(double assessment) {
+		this.assessment = assessment;
+	}
+}
+
+package zadachi;
+
+public class Worker extends Human{
+	private double pay;
+	private double hoursWorked;
+	public Worker(String name, String familyName, double pay, double hoursWorked) {
+		super(name, familyName);
+		this.pay = pay;
+		this.hoursWorked = hoursWorked;
+	}
+	public double getPay() {
+		return pay;
+	}
+	public void setPay(double pay) {
+		this.pay = pay;
+	}
+	public double getHoursWorked() {
+		return hoursWorked;
+	}
+	public void setHoursWorked(double hoursWorked) {
+		this.hoursWorked = hoursWorked;
+	}
+	public double getPayForHour() {
+		return pay / hoursWorked;
+	}
+}
