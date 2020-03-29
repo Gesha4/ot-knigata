@@ -1,0 +1,67 @@
+//Дефинирайте клас Shape със само един метод calculateSurface() и полета width и height. Дефинирайте два нови класа за триъгълник и
+//правоъгълник, които имплементират споменатия виртуален метод. Този метод трябва да връща площта на правоъгълника (height*width) и
+//триъгълника (height*width/2). Дефинирайте клас за кръг с подходящ конструктор, при когото при инициализация и двете полета 
+//(height и width) са с еднаква стойност (радиуса), и имплементирайте виртуалния метод за изчисляване на площта.
+//packages
+package zadachi;
+
+public class Shape {
+	private double width;
+	private double heigth;
+	public double getWidth() {
+		return width;
+	}
+	public void setWidth(double width) {
+		this.width = width;
+	}
+	public double getHeigth() {
+		return heigth;
+	}
+	public void setHeigth(double heigth) {
+		this.heigth = heigth;
+	}
+	public Shape(double width, double heigth) {
+		super();
+		this.width = width;
+		this.heigth = heigth;
+	}
+	public double calculateSurface() {
+		return 0;
+	}
+}
+
+package zadachi;
+
+public class Triangle extends Shape{
+	public Triangle(double width, double heigth) {
+		super(width, heigth);
+	}
+	@Override
+	public double calculateSurface() {
+		return (getWidth() * getHeigth()) / 2;
+	}
+}
+
+package zadachi;
+
+public class Rectangle extends Shape{
+	public Rectangle(double width, double heigth) {
+		super(width, heigth);
+	}
+	@Override
+	public double calculateSurface() {
+		return getWidth() * getHeigth();
+	}
+}
+
+package zadachi;
+
+public class Circle extends Shape{
+	public Circle(double radius) {
+		super(radius, radius);
+	}
+	@Override
+	public double calculateSurface() {
+		return 2 * Math.PI * getWidth();
+	}
+}
