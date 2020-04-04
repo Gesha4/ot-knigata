@@ -1,0 +1,128 @@
+//Фирма планира създаване на система за управление на магазин за авто-части. Една част може да се използва при различни модели 
+//автомобили и има следните характеристики: Код, наименование, категория (за ходовата част, гуми и джанти, за двигателя, аксесоари
+//и т.н.), покупна цена, продажна цена, списък с модели автомобили, за които може да се използва (даден автомобил се описва с 
+//марка, модел и година на производство, примерно BMW 316i, 1992), фирма-производител. Фирмите-производители се описват с 
+//наименование, държава, адрес, телефон и факс. Да се проектира съвкупност от класове с връзки между тях, които моделират данните
+//за магазина. Да се напише демонстрационна програма, която показва коректната работа на всички класове.
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class zadachi {
+
+	public class Car {
+		private String brand;
+		private String model;
+		private String productionYear;
+
+		public Car(String brand, String model, String productionYear) {
+			this.brand = brand;
+			this.model = model;
+			this.productionYear = productionYear;
+		}
+
+		@Override
+		public String toString() {
+			return "<" + this.brand + "," + this.model + "," + this.productionYear + ">";
+		}
+	}
+
+	public class Manufacturer {
+		private String name;
+		private String country;
+		private String address;
+		private String phoneNumber;
+		private String fax;
+
+		public Manufacturer(String name, String country, String address, String phoneNumber, String fax) {
+			this.name = name;
+			this.country = country;
+			this.address = address;
+			this.phoneNumber = phoneNumber;
+			this.fax = fax;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		@Override
+		public String toString() {
+			return this.name + " <" + this.country + "," + this.address + "," + this.phoneNumber + "," + this.fax + ">";
+		}
+	}
+
+	public enum PartCategory {
+		ENGINE, TIRES, EXHAUST, SUSPENSION, BRAKES
+	}
+
+	public class Part {
+		private String name;
+		private String code;
+		private PartCategory category;
+		private HashSet<Car> supportedCars;
+		private double buyPrice;
+		private double sellPrice;
+		private Manufacturer manufacturer;
+
+		public Part(String name, double buyPrice, double sellPrice, Manufacturer manufacturer, String code,
+				PartCategory category) {
+			this.name = name;
+			this.buyPrice = buyPrice;
+			this.sellPrice = sellPrice;
+			this.manufacturer = manufacturer;
+			this.code = code;
+			this.category = category;
+			this.supportedCars = new HashSet<Car>();
+		}
+
+		public void аddSupportedCar(Car car) {
+			this.supportedCars.add(car);
+		}
+
+		@Override
+		public String toString() {
+			StringBuilder result = new StringBuilder();
+			result.append("Part: " + this.name + "\n");
+			result.append("-code: " + this.code + "\n");
+			result.append("-category: " + this.category + "\n");
+			result.append("-buyPrice: " + this.buyPrice + "\n");
+			result.append("-sellPrice: " + this.sellPrice + "\n");
+			result.append("-manufacturer: " + this.manufacturer + "\n");
+			result.append("---Supported cars---" + "\n");
+			for (Car car : this.supportedCars) {
+				result.append(car);
+				result.append("\n");
+			}
+			result.append("----------------------\n");
+			return result.toString();
+		}
+	}
+
+	public class Shop {
+		private String name;
+		private ArrayList<Part> parts;
+
+		public Shop(String name) {
+			this.name = name;
+			parts = new ArrayList<Part>();
+		}
+
+		public void addPart(Part part) {
+			parts.add(part);
+		}
+
+		@Override
+		public String toString() {
+			StringBuilder result = new StringBuilder();
+			result.append("Shop: " + this.name + "\n\n");
+			for (Part part : parts) {
+				result.append(part);
+				result.append("\n");
+			}
+			return result.toString();
+		}
+	}
+
+	public static void main(String[] args) {
+	}
+}
