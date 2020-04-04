@@ -1,0 +1,60 @@
+//Даден е HTML файл с име Problem1.html. Да се напише програма, която отстранява от него всички HTML тагове и запазва само текста
+//вътре в тях. Изходът да се изведе във файла Рroblem1.txt.
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class zadachi {
+
+	private static final String INPUT_FILE_NAME = "Problem1.html";
+	private static final String OUTPUT_FILE_NAME = "Problem1.txt";
+	private static final String CHARSET = "windows-1251";
+
+	public static void main(String[] args) throws IOException {
+		InputStreamReader reader = new InputStreamReader(new FileInputStream(INPUT_FILE_NAME), CHARSET);
+		PrintWriter writer = new PrintWriter(OUTPUT_FILE_NAME, CHARSET);
+		try {
+			boolean inTag = false;
+			StringBuilder buffer = new StringBuilder();
+			while (true) {
+				int nextChar = reader.read();
+				if (nextChar == -1) {
+					printBuffer(writer, buffer);
+					break;
+				}
+				char ch = (char) nextChar;
+				if (ch == '<') {
+					if (!inTag) {
+						printBuffer(writer, buffer);
+					}
+					buffer.setLength(0);
+					inTag = true;
+				} else if (ch == '>') {
+					inTag = false;
+				} else {
+					if (!inTag) {
+						buffer.append(ch);
+					}
+				}
+			}
+		} finally {
+			reader.close();
+			writer.close();
+		}
+	}
+
+	private static void printBuffer(PrintWriter writer, StringBuilder buffer) {
+		String str = buffer.toString();
+		String trimmed = str.trim();
+		String textOnly = removeNewLineWithWhiteSpace(trimmed);
+		if (textOnly.length() != 0) {
+			writer.println(textOnly);
+		}
+	}
+
+	private static String removeNewLineWithWhiteSpace(String str) {
+		str = str.replaceAll("\n\\s+", "\n");
+		return str;
+	}
+}
